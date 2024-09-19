@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+
+    <script type="text/babel">
+    // 1. 인라인 속성으로 이벤트 정의
+    // 장점 : 직관적이다..
+    // 단점 : 이벤트 재사용이 불가능하다. 코드를 확인하기 불편하다.
+    
+    const element = (
+        <>
+        <h1>Event attribute</h1>
+        <button onClick = {()=>alert("hello world")}>버튼을 눌러주세요</button>
+        </>
+    )
+
+    //2. 이벤트 동작 시 사용할 이벤트 핸들러 정의 후 jsx내에 표현식으로 사용
+    // 장점 재사용이 가능
+    // 단점 이벤트 많은 경우 찾기 어렵다?
+    const onClickHandler = () =>{
+        alert("helloWorld");
+    }
+    const element2 = (
+        <>
+        <h1>Event attribute</h1>
+        <button onClick = {onClickHandler}>버튼을 눌러주세요</button>
+        </>
+    )
+    ReactDOM.createRoot(document.getElementById("root")).render(element2);
+    </script>
+</body>
+</html>

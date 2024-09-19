@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        /*
+            JSX란?
+            createElement를 이용해 엘리먼트를 정의하면
+            복잡하기도 하고 가독성도 좋지않다..
+            그래서 리액트 팀은 Element를 정의하는 간편한 방법으로
+            jsx 문법을 제공한다..
+            자바스크립트를 확장한 문법으로 ReactElement를 xml
+            문법으로 정의할 수 있는 방법이다..
+            단, jsx는 공식적인 자바스크립트 문법이 아니기 때문에
+            바벨이라는 트랜싱 툴이 필요하다..
+
+            추가로 jxs는 순수 리액트로 변환 해 주는 기능이 포함되었다..
+            (바벨이 jsx 처리 표준으로 사용된다)
+
+            바벨의 적용 방법(cdn)
+            1.바벨 cdn 구문을 추가한다..
+            2. script 태그에 type 속성에 text/babel 속성값을 추가한다..
+
+        */
+
+        const helloWorld = <h1>helloworld</h1>;
+        ReactDOM.createRoot(document.getElementById("root")).render(helloWorld); 
+    </script>
+</body>
+</html>

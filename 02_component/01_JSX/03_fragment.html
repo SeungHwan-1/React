@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!--jsx는 편리하지만 몇가지 규칙을 준수해야한다
+    동일한 레벨의 노드들이 연달아 정의되는 경우 문법적인 에러가 발생하게 된다
+    여러 형제 레벌의 엘리먼트를 정의해야 하는 경우 하나의 부모 엘리먼트(div와같은)
+    로 감싸야하는데, div 같은 실직적인 요소를 사용하지 않으려면 fragment를 이용할 수 있다.
+    
+    -->
+    <div id="root"></div>
+    
+
+    <script type="text/babel">
+    const user ={
+        name : "gildong",
+        phone : "010-1234-5678"
+    };
+    // 1. 최상위 엘리먼트가 두 개 이상이면 에러가 발생한다..(하나의 돔트리)
+    /*const element = (
+    <h1>hello</h1>
+    <h3>phone</h3>   
+) */
+// div 태그로 감싸서 하나의 돔트리를 생성할 수 있다..
+const element2 =(
+    <div>
+        <h1>hello {user.name}</h1>
+        <h3>phone {user.phone}</h3>
+        </div>
+);
+
+
+//3. <React.fragment>로 감싸서 형식상의 상위 엘리먼트를 만들어 준다
+    const element3 =(
+    <React.Fragment>
+        <h1>hello {user.name}</h1>
+        <h3>phone {user.phone}</h3>
+        </React.Fragment>
+);
+//4. React 라이브러리 Fragment 부문만 구조분해 할당
+    const {Fragment} = React;
+
+    const element4 =(
+    <Fragment>
+        <h1>hello {user.name}</h1>
+        <h3>phone {user.phone}</h3>
+        </Fragment>
+);
+
+//5. 축약 문법 사용
+
+const element5 =(
+    <>
+        <h1>hello {user.name}</h1>
+        <h3>phone {user.phone}</h3>
+    </>
+);
+
+        ReactDOM.createRoot(document.getElementById("root")).render(element5);
+    </script>
+</body>
+</html>

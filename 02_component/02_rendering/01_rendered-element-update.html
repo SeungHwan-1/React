@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!--
+        리액트 엘리먼트는 불변 객체이다.
+        엘리먼트를 생성한 이후에는 해당 엘리먼트의 자식이나 속성을
+        변경할 수 없다
+        따라서 엘리먼트를 업데이트 하기 위해서는 완전히 
+        새로운 엘리먼트를 만들고 ReactDOM.render로 다시
+        랜더링 하는 방식을 사용한다
+        -->
+    <div id="root"></div>
+    
+
+    <script type="text/babel">
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        
+    </script>
+</body>
+</html>

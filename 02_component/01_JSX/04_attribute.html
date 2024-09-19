@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <!--
+        JSX 를 이용해 엘리먼트를 정의할 시 attribute도 정의할 수 있다.
+        주의할 사항은 class 속성은 className 이라는 속성으로 사용해야 한다.
+        또한 이벤트 관련 속성은 카멜표기법이다.(onclick->onClick)
+
+        JSX에서 속성값을 부여하는 방식은 두 가지로 나뉜다..
+        1. 문자열로 속성값을 정의하는 방식
+        2. Javascript 표현식을 아용하여 정의하는 방식
+    -->
+
+    <script type="text/babel">
+
+        //1. 문자열로 속성값을 정의하는 방법
+        const element1 = <h1 id="title" className="highlight" onClick={test}>Hello World</h1>
+        //2. javascript표현식
+        const id = "title";
+        const className = "highlight";
+
+        const element = <h1 id={id} className={className} onClick={test}>hello world</h1>
+        ReactDOM.createRoot(document.getElementById("root")).render(element1);
+
+        function test(){
+            console.log("클릭했네");
+        }
+
+    </script>
+</body>
+</html>
