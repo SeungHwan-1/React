@@ -22,7 +22,19 @@
 
     <script type="text/babel">
         const root = ReactDOM.createRoot(document.getElementById("root"));
-        
+
+        function tick()
+        {
+            const element=(
+                <>
+                    <h1>what time is it now?</h1>
+                    <h3>it is {new Date().toLocaleTimeString()}</h3>
+                </>
+            );
+            root.render(element);
+        }
+
+        setInterval(tick,1000);
     </script>
 </body>
 </html>

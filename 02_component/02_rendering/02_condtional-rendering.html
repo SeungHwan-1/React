@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+         const root = ReactDOM.createRoot(document.getElementById("root"));
+        const answer = parseInt(prompt("리액트 잼씀? \n 1. ㅇ \n 2. ㄴ"));
+
+        //1. 랜더링 시 조건 비교 후 조건부 랜더링(최대한 조건식이 심플할 때 사용)
+        const positiveElement = <h1>더 재밌을듯?</h1>
+        const negativeElement = <h1>다시해</h1>
+
+        /*root.render(
+            (answer === 1)? positiveElement:negativeElement
+        );*/
+
+        //2. &&연산자를 이용하여 조건부 엘리먼트 생성(조건이맞을때만)
+        const element = (answer === 1) && <h1>앞으로 점점</h1>;
+        root.render(element);
+    </script>
+</body>
+</html>
