@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- 
+        useState
+        React 객체 내부에 존재하는 함수형 속성이다..
+        그래서 React.useState로 호출해야 한다..
+    -->
+
+    <script type="text/babel">
+
+        const {useState} = React;
+        
+        function Say(){
+
+            const [message,setMessage] = useState("기본상태");
+            const [color,setColor] = useState("black");
+            
+            const onClickEnter = () => setMessage("안녕하세요");
+            const onClickLeave =() => setMessage("안녕히 가세요");
+            return (
+                <>
+
+                    <h1 style={{color}}>{message}</h1>
+
+                    <div>
+                        <button onClick={onClickEnter}>입장</button>
+                        <button onClick={onClickLeave}>퇴장</button>
+                        <button onClick={()=>setColor("red")}>색변경</button>
+                    </div>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<Say/>);
+    </script>
+</body>
+</html>

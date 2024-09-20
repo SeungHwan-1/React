@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- props 구조 분해 할당 -->
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        function PropsPrinter({name,children}){
+            return(
+                <>
+                    <h1>{name}</h1>
+                    <h3>{children}</h3>
+                </>
+            )
+        }
+
+        const PropsPrinter2 = ({name,children}) => {
+            return (
+                <>
+                    <h1>{name}</h1>
+                    <h3>{children}</h3>
+                </>
+            )
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(
+            <PropsPrinter2 name="홍길동">텍스트노드</PropsPrinter2>
+        )
+
+
+    </script>
+</body>
+</html>

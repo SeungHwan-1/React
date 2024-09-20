@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+   
+    <div id="root"></div>
+
+    <!-- 
+        useState
+        React 객체 내부에 존재하는 함수형 속성이다..
+        그래서 React.useState로 호출해야 한다..
+    -->
+    
+    <script type="text/babel">
+        
+        const {useState} = React;
+        
+        function Say(){
+
+         
+            const [number,setNumber] = useState(0);
+            const [color,setColor] = useState("black");
+            
+            const onClickEnter = () => setNumber(number+1);
+            const onClickLeave =() => setNumber(number-1);
+            return (
+                <>
+                
+                    <h1 style={{color}}> Number : {number}</h1>
+
+                    <div>
+                        <button onClick={onClickEnter}>+1</button>
+                        <button onClick={onClickLeave}>-1</button>
+                        <button onClick={()=>setColor("red")}>red</button>
+                        <button onClick={()=>setColor("blue")}>blue</button>
+                        <button onClick={()=>setColor("green")}>green</button>
+                        <button onClick={()=>setColor("orange")}>orange</button>
+                    </div>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<Say/>);
+    </script>
+</body>
+</html>

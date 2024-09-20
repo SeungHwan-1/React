@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+<!-- 
+    컴포넌트 합성
+    컴포넌트는 자신에 출력에 다른 컴포넌트를 참조할 수 있다..
+    컴포넌트는 재사용 가능한 크기로 작게 유지해야 하며,
+    순수 함수처럼 작성되어야 한다..
+    순수 함수에 대한 설명은 props 챕터에서 다루게 된다..
+    지금은 단순히 컴포넌트를 생성할 때 다른 컴포넌트를
+    참조해서 사용하는 것을 알아본다..    
+-->
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const user ={
+            name : "홍길동",
+            age : 20,
+            phone : "010-1234-5678",
+            email : "hong@gmail.com"
+        };
+
+        function NameCard(){
+            return <h1>{user.name}</h1>
+        }
+        function AgeCard(){
+            return <h1>{user.age}</h1>
+        }
+        function PhoneCard(){
+            return <h1>{user.phone}</h1>
+        }
+        function EmailCard(){
+            return <h1>{user.email}</h1>
+        }
+
+        function UserInfo(){
+            return (
+                <>
+                    <NameCard/>
+                    <AgeCard/>
+                    <PhoneCard/>
+                    <EmailCard/>
+                </>
+            )
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<UserInfo/>);
+
+
+    </script>
+
+
+</body>
+</html>
