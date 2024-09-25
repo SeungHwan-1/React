@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class TimePrinter extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={
+                    now : new Date().toLocaleTimeString()
+                };
+            }
+            
+
+            static getDerivedStateFromProps(props,state){
+                console.log("getDerivedStateFromProps");
+                console.log(props);
+                console.log(state);
+                return null;
+            }
+
+            // 컴포넌트를 리렌더링 할 것인지 말 것인지 결정하는 메소드
+            shouldComponentUpdate(props,state){
+                console.log("shouldComponentUpdate");
+                console.log(props);
+                console.log(state);
+                return true;
+            }
+
+            render(){
+                console.log("render");
+                return (
+                    <>
+                        <button onClick={()=>this.setState({now:new Date().toLocaleTimeString()})}>
+                            현재 시간 확인하기
+                        </button>
+                        <h1>{this.state.now}</h1>
+                    </>
+                )
+            }
+
+            // 컴포넌트의 변화를 실제 dom에 반영하기 직전에 호출되는 메소드이다..
+            getSnapshotBeforeUpdate(){
+                console.log("getSnapshotBeforeUpdate");
+                return {
+                    message :"스냅샷입니다.."
+                }
+            }
+
+            // 컴포넌트 업데이트 작업이 끝난 후 호출되는 메소드
+            componentDidUpdate(prevProps,prevState,snapshot){
+                // DOM조작, API 호출, 데이터 동기화 등
+                console.log("componentDidUpdate");
+                console.log(prevProps);
+                console.log(prevState);
+                console.log(snapshot);
+            }
+
+
+        }
+        ReactDOM.createRoot(document.getElementById("root")).render(<TimePrinter test={"test"}/>);
+            
+    </script>
+
+</body>
+</html>

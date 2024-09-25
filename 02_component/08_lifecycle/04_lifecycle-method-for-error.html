@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class ErrorBoundery extends React.Component{
+            state={
+                hasError : false
+            }
+
+            static getDerivedStateFromError(error){
+                console.log("getDerivedStateFromError");
+                return{hasError:true};
+            }
+
+            //2. 자손 컴포넌트에서 오류가 발생했을 때 세번째로 호출
+            componentDidCatch(error,info){
+                    // error 발생 오류  , info 어떤 컴포넌트가 오류를 발생시켰는지
+                
+                    console.log("componentDidCatch");
+                    console.log({error,info});
+            }
+
+            render(){
+                console.log(this.state);
+                if(this.state.hasError){
+                    return (
+                        <>
+                            <h1>에러가 발생했습니다. </h1>
+                            <h3>내 코드에서 에러라니 </h3>
+                        </>
+                    )
+                }
+                return this.props.children;
+            }
+        }
+
+        class TimePrinter extends React.Component{
+            state={
+                now : new Date().toLocaleTimeString()
+            };
+
+            render(){
+                return (
+                    <>
+                        <button onClick={()=>this.setState({now:new Date().toLocaleTimeString()})}>
+                             현재 시간 확인하기
+                        </button>
+                        <h1>{this.state.now}</h1>
+                    </>
+                )
+            }
+
+        }
+
+        class App extends React.Component{
+            render(){
+                return (
+                    <ErrorBoundery>
+                        <TimePrinter/>
+                    </ErrorBoundery>
+                )
+            }
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+    </script>
+</body>
+</html>

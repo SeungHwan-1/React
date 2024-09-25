@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- 
+    
+        컴포넌트 라이프 사이클 메소드는 총 9가지가 있다..
+        라이프 사이클 메소드는 클래스형 컴포넌트에서만 사용이 가능하다..
+        라이프 사이클은 총 3가지 카테고리인 마운트, 업데이트, 언마운트로 나뉜다..
+        (이런것들이 제공되지 않는 함수형 컴포넌트는 훅스를 제공해준다..)
+
+        마운트 : dom 이 생성되고 웹 브라우저상 나타나는 것을 마운트 라고 한다..
+
+        업데이트 : 컴포넌트의 상태가 바뀌는 경우를 의미하며 총 4가지 업데이트 상황이 있다..
+        props 변경, state 변경, 부모 컴포넌트 리렌더링, this.forceupdate 로 강제 렌더링
+
+        언마운트 : 컴포넌트를 dom 에서 제거하는 것을 언마운트 라고 한다..
+    -->
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+//  construct -> getDerivedStateFromProps -> render -> componentDidMount
+
+        class Greeting extends React.Component{
+
+            constructor(props){
+                super();
+                console.log("constructor");
+
+                this.state={
+                    text:"초기값"
+                }
+            }
+
+            static getDerivedStateFromProps(){
+
+                //  props 로 받아온 값을 state에 동기화 시킬 때 사용된다..
+                console.log("getDerivedStateFromProps");
+                return null;
+            }
+
+            render(){
+                // 라이프 사이클 메소드 중 유일한 필수 메소드이다..
+                // render는 this.props와 this.state에 접근할 수 있다..
+                console.log("render");
+                return(
+                    <>
+                        <h1>현재의 상태 값 : {this.state.text}</h1>
+                    </>
+                )
+            }
+
+            componentDidMount(){
+                // 컴포넌트를 다 만든 후 첫 렌더링을 마친 이후 호출된다..
+                // 다른 자바스크립트 라이브러리 또는 프레임워크 함수 등을 호출하거나
+                // 네트워크 요청과 같은 작업을 처리한다..
+                console.log("componentDidMount");
+            }
+
+        }
+
+        ReactDOM.createRoot(document.getElementById("root")).render(<Greeting/>);
+
+    </script>
+</body>
+</html>
