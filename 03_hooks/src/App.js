@@ -14,6 +14,17 @@ import { UseMemoComponent } from "./03_useMemo/03_performance-useMemo";
 import { LocationComponent } from "./03_useMemo/04_object-type-problem";
 import { CaluatorComponent } from "./03_useMemo/test";
 import SqareCalculator from "./03_useMemo/05_question1";
+import CallBackProblem from "./04_useCallback/01_problum";
+import { FunctionMemoization } from "./04_useCallback/02_function-memoization";
+import { CallbackComponent } from "./04_useCallback/03_components";
+import { UseRefCounter } from "./useRef/02_useRef";
+import { LoginComponent } from "./useRef/03_inputRef";
+import { NoticeBoard } from "./useRef/04_question1";
+import Page from "./06_useContext/01_props-dribbling";
+import ContextContainer from "./06_useContext/02_useContext";
+import { HooksProblem } from "./07_custom-hooks/01_problem";
+import { Customhooks } from "./07_custom-hooks/02_custom-hooks";
+
 
 function App()
 {
@@ -34,10 +45,19 @@ function App()
       <Input/>
       <UseReducer/>
       <HardCalculator/>
-      <ComplexCalculator/>*/}
+      <ComplexCalculator/>
       <UseMemoComponent/>
       <LocationComponent/>
       <SqareCalculator/>
+      <CallBackProblem/>
+      <FunctionMemoization/>
+      <CallbackComponent/>
+      <Page/>
+      <ContextContainer/>
+      
+      <HooksProblem/>
+      <Customhooks/>*/}
+      <NoticeBoard/>
     </>
   );
 }

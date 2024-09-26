@@ -7,9 +7,6 @@ function App() {
   const [names,setNames] = useState([
     {id:1,name:"안녕",tf:false},
     {id:2,name:"안녕2",tf:false}
-
-  
-
 ]);
 
      const [inputText,setInputText] = useState("");
