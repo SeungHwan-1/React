@@ -17,7 +17,7 @@ const Weather = ()=> {
                     longitude : currentPosition.coords.longitude,
                     latitude : currentPosition.coords.latitude
                 });
-                resolve(currentPosition.coords);
+                resolve(currentPosition.coords); // 이게뭐지
             })
         })
         )

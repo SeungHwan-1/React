@@ -4,6 +4,7 @@ import EmojiContainer from "./02_api/04_github-emoji";
 import Container from "./03_data-component/01_rendering-component";
 //import Weather from "./03_data-component/02_weather-promise";
 import Weather from "./03_data-component/test";
+import { News } from "./03_data-component/test2";
 
 
 function App() {
@@ -11,9 +12,11 @@ function App() {
     <>
    {/* <ApiComponent/>*/}
      {/*<AxiosCallComponent/>*/}
-    {/* <EmojiContainer/>
-    <Container/>*/}
+    {/* 
+    <Container/>
     <Weather/>
+    <News/>*/}
+    
     </>
   );
 }
