@@ -1,19 +1,21 @@
 import {useParams} from "react-router-dom";
 import {useState,useEffect} from "react";
 import { getMenuDetail } from "../api/MenuApi";
-const MenuDetail = () =>
+const MenuDetail = ({setOrder}) =>
     {
         const {menuCode} = useParams();
         // url parameter라고 부른다 특정변수에 담기는
         const [menu,setMenu] = useState({
+            id : "",
             name : "",
             price : "",
             description: ""
         });
     
         useEffect(()=>{
-            console.log(menuCode);
+            console.log(typeof setOrder)           
             setMenu(getMenuDetail(menuCode));
+            setOrder((preOrder)=>[...preOrder,getMenuDetail(menuCode)]);
             console.log(getMenuDetail(menuCode));
         },[])
     

@@ -7,7 +7,7 @@ const Menu = () =>{
     const [menuList,setMenuList] = useState([]);
     const [searchValue,setSearchValue] = useState('');
     const navigate = useNavigate();
-
+    
     useEffect(()=>{
         setMenuList(getMenuList());
     },[]);
